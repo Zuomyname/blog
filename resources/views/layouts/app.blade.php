@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+    <link href="https://apps.bdimg.com/libs/highlight.js/9.1.0/styles/zenburn.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,6 +34,8 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+<script src="http://apps.bdimg.com/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

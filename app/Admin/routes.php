@@ -15,4 +15,8 @@ Route::group([
     $router->get('users/{id}/edit', 'UsersController@edit');
     $router->put('users/{id}', 'UsersController@update');
 
+    $router->get('topics', 'TopicsController@index');
+    $router->get('topics/{id}/edit', 'TopicsController@edit');
+    $router->put('topics/{id}', 'TopicsController@update');
+
 });

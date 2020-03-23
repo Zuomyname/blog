@@ -406,8 +406,9 @@ return [
 
             // Editor configuration
             'config' => [
-                'blockStyles' => true,
-                'tabSize' => 4
+                'blockStyles' => 'code',
+                'tabSize' => 4,
+                'toggleSideBySide' => true,
             ]
         ]
     ],
