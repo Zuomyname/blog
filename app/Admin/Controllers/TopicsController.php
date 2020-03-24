@@ -26,19 +26,13 @@ class TopicsController extends AdminController
     {
         $grid = new Grid(new Topic());
 
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('body', __('Body'));
-        $grid->column('user_id', __('User id'));
+        $grid->column('id', 'ID');
+        $grid->column('title', __('标题'));
+        $grid->column('body', __('描述'));
         $grid->column('category_id', __('Category id'));
-        $grid->column('reply_count', __('Reply count'));
         $grid->column('view_count', __('View count'));
-        $grid->column('last_reply_user_id', __('Last reply user id'));
-        $grid->column('order', __('Order'));
-        $grid->column('excerpt', __('Excerpt'));
-        $grid->column('slug', __('Slug'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('created_at', __('创建时间'));
+        $grid->column('updated_at', __('更新时间'));
 
         return $grid;
     }
@@ -81,14 +75,6 @@ class TopicsController extends AdminController
 
         $form->text('title', __('Title'));
         $form->simplemde('body', __('Body'));
-        $form->number('user_id', __('User id'));
-        $form->number('category_id', __('Category id'));
-        $form->number('reply_count', __('Reply count'));
-        $form->number('view_count', __('View count'));
-        $form->number('last_reply_user_id', __('Last reply user id'));
-        $form->number('order', __('Order'));
-        $form->textarea('excerpt', __('Excerpt'));
-        $form->text('slug', __('Slug'));
 
         return $form;
     }

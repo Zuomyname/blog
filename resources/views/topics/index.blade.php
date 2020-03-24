@@ -1,32 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="row mb-5">
-        <div class="col-lg-9 col-md-9 topic-list">
-            <div class="card ">
-
-{{--                <div class="card-header bg-transparent">--}}
-{{--                    <ul class="nav nav-pills">--}}
-{{--                        <li class="nav-item"><a class="nav-link active" href="#">最后回复</a></li>--}}
-{{--                        <li class="nav-item"><a class="nav-link" href="#">最新发布</a></li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-
-                <div class="card-body">
-                    {{-- 话题列表 --}}
-                    @include('topics._topic_list', ['topics' => $topics])
-                    {{-- 分页 --}}
-                    <div class="mt-5">
-                        {!! $topics->appends(Request::except('page'))->render() !!}
-                    </div>
-                </div>
+    <div class="col-group">
+        <div class="clo-8" id="main">
+            <div class="res-cons">
+                @foreach($topics as $topic)
+                    <article class="post">
+                        <header>
+                            <h2 class="post-title">
+                                <a href="{{ route('topics.show', ['id' => $topic->id]) }}">{{ $topic->title }}</a>
+                            </h2>
+                        </header>
+                        <p class="post-meta meta-date">{{ $topic->created_at }}</p>
+                        <div class="post-meta meta-category">
+                            |
+                            <a href="#">{{ $topic->category->name }}</a>
+                        </div>
+                        <div class="post-content">
+                            <p>{{ mb_substr($topic->body, 0, 50) }}</p>
+                        </div>
+                        <p class="readmore clearfix">
+                            <a href="#">阅读全文</a>
+                        </p>
+                        <p style="border-bottom:1px solid #eee"></p>
+                    </article>
+                @endforeach
+                {!! $topics->appends(Request::except('page'))->render() !!}
             </div>
         </div>
-
-        <div class="col-lg-3 col-md-3 sidebar">
-            @include('topics._sidebar')
-        </div>
-    </div>
+{{--        @include('layouts._right')--}}
 
 @endsection

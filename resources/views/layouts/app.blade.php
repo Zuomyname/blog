@@ -23,13 +23,11 @@
 
     <div class="container">
 
-{{--        @include('shared._messages')--}}
-
         @yield('content')
+        @include('layouts._right')
 
     </div>
-
-    @include('layouts._footer')
+{{--    @include('layouts._footer')--}}
 </div>
 
 <!-- Scripts -->

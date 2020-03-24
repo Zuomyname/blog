@@ -15,8 +15,9 @@ class TopicsController extends Controller
 //            $topic->body = $p->setBreaksEnabled(true)->text($topic->title);
 //        }
 //        dd($topics);
+        $p = new \Parsedown();
         $topics = Topic::paginate(10);
-        return view('topics.index', ['topics' => $topics]);
+        return view('topics.index', ['topics' => $topics, 'p' => $p]);
     }
 
     public function show(Topic $topic)
